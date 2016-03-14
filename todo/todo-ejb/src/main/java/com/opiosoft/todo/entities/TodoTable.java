@@ -20,6 +20,11 @@ public class TodoTable {
 	public TodoTable() {
 	}
 
+	public TodoTable(Integer codigo,String descripcion) {
+		this.codigo = codigo;
+		this.descripcion = descripcion;
+	}
+
 	public TodoTable(Integer codigo) {
 		this.codigo = codigo;
 	}
@@ -27,6 +32,7 @@ public class TodoTable {
 	public TodoTable(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
 
 	public Integer getCodigo() {
 		return codigo;

@@ -1,6 +1,6 @@
 package com.opiosoft.todo.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,55 +8,53 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.apache.log4j.Logger;
+import org.junit.Test;
 
 import com.opiosoft.todo.dao.TodoTableDao;
+import com.opiosoft.todo.dao.TodoTableDaoImpl;
 import com.opiosoft.todo.entities.TodoTable;
-
 
 public class TodoTableDaoTest {
 
-	Logger log = Logger.getLogger("TodoTableDaoTest");
-	
-	private TodoTableDao todo;
-	
-	//@Test
-		public void testTodoTableDaoInsertar() {
+Logger log = Logger.getLogger("TodoTableDaoTest");
 
-			log.debug("Inicio testTodoTableDaoInsertar");
-			TodoTable todoTable = new TodoTable("prueba");
-			
-			todo.insertar(todoTable);
-			
-			assertTrue(todoTable.getCodigo() != null);
+	@Test
+	public void testRecuperarAll() {
+		fail("Not yet implemented");
+	}
 
-			log.debug("Fin testTodoTableDaoInsertar");
-			
-		}
-	
-	
-	/*	
-	public static void main(String[] args) {
-		Logger log = Logger.getLogger("TodoTableTest");
-		
-		log.info("main");
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TodoTablePU");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		// No se debe especificar el ID, ya que se genera en automático
-		TodoTable todoTable = new TodoTable("Sexto");
-		TodoTable todoTableFind = new TodoTable(new Integer(1));
-		
-		log.debug("Objeto a persistir:" + todoTable);
-		em.persist(todoTable);
-		
-		tx.commit();
-		log.debug("Objeto persistido:" + todoTable);
-		em.close();
+	@Test
+	public void testRecuperarPorCodigo() {
+		fail("Not yet implemented");
+	}
 
-		
-		
-		
-	}*/
+	@Test
+	public void testInsertar() {
+		log.debug("Inicio testInsertar");
+		TodoTable todoTable = new TodoTable("prueba");
+		TodoTableDao todo = new TodoTableDaoImpl();
+		todo.insertar(todoTable);
+		assertTrue(todoTable.getCodigo() != null);
+		log.debug("Fin testInsertar");
+	}
+
+	@Test
+	public void testActualizar() {
+		log.debug("Inicio testActualizar");
+		TodoTable todoTable = new TodoTable(11, "once");
+		TodoTableDao todo = new TodoTableDaoImpl();
+		todo.actualizar(todoTable);
+		assertTrue(todoTable.getCodigo() != null);
+		log.debug("Fin testActualizar");
+	}
+
+	@Test
+	public void testEliminar() {
+		fail("Not yet implemented");
+	}
+
+	
+
+	
+
 }
