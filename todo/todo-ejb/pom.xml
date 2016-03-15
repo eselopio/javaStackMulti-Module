@@ -21,11 +21,39 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+<!-- opio nose porque debo comentar esta dependencia, ya que si la dejo me sale error -->
+<!-- Exception in thread "main" java.lang.ClassFormatError: Absent Code attribute in method that is not native or abstract in class file javax/persistence/Persistence -->
+<!-- se "mareara" con la jre system library que pone eclipse???? -->
+<!--    		<dependency>
 			 <groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
+		</dependency>-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+	    </dependency>
+	    <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.20</version>
+		</dependency>
+	 	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.1.4.Final</version>
+		</dependency>
+	 	<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.6</version>
 		</dependency>
 		<dependency>
 			<groupId>com.todo.jee</groupId>
@@ -33,6 +61,8 @@
 			<version>0.1-SNAPSHOT</version>
 		 	<scope>provided</scope>
 		</dependency>
+		
+	
 	</dependencies>
 
 	<build>
