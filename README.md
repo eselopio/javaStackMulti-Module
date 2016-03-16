@@ -1,4 +1,4 @@
-﻿# javaStackMulti-Module rama chokko
+﻿# javaStackMulti-Module
 
 Proyecto backend java multi modulo.
 
