@@ -2,11 +2,6 @@ package com.opiosoft.todo.test;
 
 import static org.junit.Assert.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -20,12 +15,31 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 
 	@Test
 	public void testRecuperarAll() {
-		fail("Not yet implemented");
+		log.debug("Inicio testRecuperarAll");
+
+		TodoTableDao todo = new TodoTableDaoImpl();
+		  
+		assertTrue(!todo.recuperarAll().isEmpty());
+
+		log.debug("Lista de objetos recuperados");
+		for(TodoTable t:todo.recuperarAll()){
+			log.debug(t);
+		}
+		
+		log.debug("fin testRecuperarAll");
 	}
 
 	@Test
 	public void testRecuperarPorCodigo() {
-		fail("Not yet implemented");
+		  TodoTable todoTable=null;
+		  log.debug("Inicio testRecuperarPorCodigo");
+		  
+		  TodoTableDao todo = new TodoTableDaoImpl();
+		  assertTrue((todoTable=todo.recuperarPorCodigo(1)) != null);
+		  
+		  log.debug("Objeto recuperado "+todoTable);
+		  
+		  log.debug("fin testFindRecuperarPorCodigo");
 	}
 
 	@Test
@@ -50,7 +64,13 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 
 	@Test
 	public void testEliminar() {
-		fail("Not yet implemented");
+		log.debug("Inicio testEliminar");
+		TodoTable todoTable = new TodoTable(1);
+		TodoTableDao todo = new TodoTableDaoImpl();
+		todo.eliminar(todoTable);
+		log.debug("Fin testEliminar1");
+		assertTrue(true);
+		log.debug("Fin testEliminar2");
 	}
 
 	
