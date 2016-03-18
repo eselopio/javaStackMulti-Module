@@ -3,10 +3,8 @@ package com.opiosoft.todo.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
 import com.opiosoft.todo.entities.TodoTable;
 
@@ -23,16 +21,20 @@ public class TodoTableDaoImpl implements TodoTableDao {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TodoTable> recuperarAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return em.createNamedQuery("TodoTable.findAll").getResultList();
+
 	}
 
 	@Override
 	public TodoTable recuperarPorCodigo(Integer codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		  TodoTable todo = em.find(TodoTable.class, codigo);
+		  
+		  return todo;
 	}
 
 	@Override
@@ -40,7 +42,7 @@ public class TodoTableDaoImpl implements TodoTableDao {
 		// TODO Auto-generated method stub
 		tx.begin();
 		em.persist(todoTable);
-		tx.commit();
+		tx.rollback();
 		em.close();
 	}
 
@@ -49,7 +51,7 @@ public class TodoTableDaoImpl implements TodoTableDao {
 		// TODO Auto-generated method stub
 		tx.begin();
 		em.merge(todoTable);
-		tx.commit();
+		tx.rollback();
 		em.close();
 
 	}
@@ -57,6 +59,11 @@ public class TodoTableDaoImpl implements TodoTableDao {
 	@Override
 	public void eliminar(TodoTable todoTable) {
 		// TODO Auto-generated method stub
+		tx.begin();
+		todoTable = em.find(TodoTable.class, todoTable.getCodigo());
+		em.remove(todoTable);
+		tx.rollback(); 
+		em.close();
 
 	}
 
