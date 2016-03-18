@@ -18,34 +18,41 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<glassfish.embedded-static-shell.jar>
+			C:\appServers\glassfish-3.1.2\glassfish3\glassfish\lib\embedded\glassfish-embedded-static-shell.jar
+		</glassfish.embedded-static-shell.jar>
 	</properties>
 
 	<dependencies>
-<!-- opio nose porque debo comentar esta dependencia, ya que si la dejo me sale error -->
-<!-- Exception in thread "main" java.lang.ClassFormatError: Absent Code attribute in method that is not native or abstract in class file javax/persistence/Persistence -->
-<!-- se "mareara" con la jre system library que pone eclipse???? -->
-<!--    		<dependency>
-			 <groupId>javax</groupId>
+		<dependency>
+			<groupId>org.glassfish.extras</groupId>
+			<artifactId>glassfish-embedded-static-shell</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>${glassfish.embedded-static-shell.jar}</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
-		</dependency>-->
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
-	    </dependency>
-	    <dependency>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.20</version>
 		</dependency>
-	 	<dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.1.4.Final</version>
 		</dependency>
-	 	<dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.5.6</version>
@@ -59,10 +66,10 @@
 			<groupId>com.todo.jee</groupId>
 			<artifactId>todo-api</artifactId>
 			<version>0.1-SNAPSHOT</version>
-		 	<scope>provided</scope>
+			<scope>provided</scope>
 		</dependency>
-		
-	
+
+
 	</dependencies>
 
 	<build>
