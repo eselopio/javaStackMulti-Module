@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.opiosoft.todo.dao.TodoTableDao;
 import com.opiosoft.todo.entities.TodoTable;
+import com.opiosoft.todo.servicioWeb.TodoTableWS;
 
 @Stateless
-public class TodoTableServiceImpl implements TodoTableService {
+@WebService(endpointInterface = "com.opiosoft.todo.servicioWeb.TodoTableWS")
+public class TodoTableServiceImpl implements TodoTableService,TodoTableWS {
 
 	
 	@EJB
