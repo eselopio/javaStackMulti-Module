@@ -13,7 +13,7 @@ public class TodoTableDaoTest {
 
 Logger log = Logger.getLogger("TodoTableDaoTest");
 
-	@Test
+	//@Test
 	public void testRecuperarAll() {
 		log.debug("Inicio testRecuperarAll");
 
@@ -29,7 +29,7 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 		log.debug("fin testRecuperarAll");
 	}
 
-	@Test
+	//@Test
 	public void testRecuperarPorCodigo() {
 		  TodoTable todoTable=null;
 		  log.debug("Inicio testRecuperarPorCodigo");
@@ -42,7 +42,7 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 		  log.debug("fin testFindRecuperarPorCodigo");
 	}
 
-	@Test
+	//@Test
 	public void testInsertar() {
 		log.debug("Inicio testInsertar");
 		TodoTable todoTable = new TodoTable("prueba");
@@ -52,7 +52,7 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 		log.debug("Fin testInsertar");
 	}
 
-	@Test
+	//@Test
 	public void testActualizar() {
 		log.debug("Inicio testActualizar");
 		TodoTable todoTable = new TodoTable(11, "once");
@@ -62,7 +62,7 @@ Logger log = Logger.getLogger("TodoTableDaoTest");
 		log.debug("Fin testActualizar");
 	}
 
-	@Test
+	//@Test
 	public void testEliminar() {
 		log.debug("Inicio testEliminar");
 		TodoTable todoTable = new TodoTable(1);

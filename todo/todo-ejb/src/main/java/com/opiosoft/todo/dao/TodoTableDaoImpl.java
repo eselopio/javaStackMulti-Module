@@ -34,7 +34,6 @@ public class TodoTableDaoImpl implements TodoTableDao {
 	public void insertar(TodoTable todoTable) {
 		// TODO Auto-generated method stub
 		em.persist(todoTable);
-		em.close();
 	}
 
 	@Override
